@@ -1,0 +1,39 @@
+<?php defined( '_JEXEC' ) or die( 'The way is shut!' );
+/*
+ *      @version       $Id: csseditor.php 2012-12-14 10:13:07 CEST zanardi $
+ *      @package       GiBi AddCSS
+ *      @author        GiBiLogic
+ *      @authorUrl     http://www.gibilogic.com
+ *      @authorEmail   info@gibilogic.com
+ *      @copyright     Copyright (C) 2012 GiBiLogic snc - All rights reserved.
+ *      @license       GNU/GPL v2 or later
+ */
+
+jimport('joomla.html.html');
+jimport('joomla.form.formfield');
+
+class JFormFieldCsseditor extends JFormField
+{
+  protected $type = 'csseditor';
+
+  protected function getInput()
+  {
+    $html = array();
+    
+    $html[]	= "<textarea name=\"{$this->name}\" id=\"{$this->id}\">{$this->value}</textarea>";
+    $html[]= '<style type="text/css">.panelform .CodeMirror {border: 1px solid #170;clear: left;font-size: 150%;height: auto}</style>';
+    $html[]= '<script src="/media/addcss/codemirror.js"></script>';
+    $html[]= '<script src="/media/addcss/css/css.js"></script>';
+    $html[]= '<link rel="stylesheet" href="/media/addcss/codemirror.css">';
+		$html[]= '<script>';
+		$html[]= 'window.addEvent("load",function(){';
+		$html[]= '  var myCssCodeMirror = CodeMirror.fromTextArea( '. $this->id   .', {';
+    $html[]= '    mode: "css",';
+		$html[]= '    lineNumbers: true';
+		$html[]= '  });';
+		$html[]= '});';
+		$html[]= '</script>'; 
+    
+    return( implode( "\n", $html ) ); 
+  }
+}
