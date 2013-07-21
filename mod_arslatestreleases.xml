@@ -1,53 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="2.5" client="site" method="upgrade">
-	<name>mod_arslatestreleases</name>
-	<author>GiBiLogic</author>
-	<creationDate>2013-01-15</creationDate>
-	<copyright>Copyright (C) 2012 GiBiLogic snc. All rights reserved.</copyright>
-	<license>GNU/GPL v2 or later</license>
-	<authorEmail>info@gibilogic.com</authorEmail>
-	<authorUrl>www.gibilogic.com</authorUrl>
-	<version>2.2</version>
-	<description>MOD_ARSLATESTRELEASES_DESCRIPTION</description>
-	<files>
-		<filename module="mod_arslatestreleases">mod_arslatestreleases.php</filename>
-		<folder>fields</folder>
-		<folder>language</folder>
-		<folder>tmpl</folder>
-		<filename>helper.php</filename>
-		<filename>index.html</filename>
-	</files>
-	<languages>
-		<language tag="en-GB">en-GB.mod_arslatestreleases.ini</language>
-		<language tag="it-IT">it-IT.mod_arslatestreleases.ini</language>
-	</languages>
-	<config>
-		<fields name="params" addfieldpath="/modules/mod_arslatestreleases/fields">
-			<fieldset name="basic">
-				<field name="count" type="text" default="5" label="MOD_ARSLATESTRELEASES_FIELD_COUNT_LABEL" description="MOD_ARSLATESTRELEASES_FIELD_COUNT_DESC" />
-        <field name="maturity" type="list" label="MOD_ARSLATESTRELEASES_FIELD_MATURITY_LABEL" description="MOD_ARSLATESTRELEASES_FIELD_MATURITY_DESC">
-          <option value="alpha">Alpha</option>
-          <option value="beta">Beta</option>
-          <option value="rc">Release Candidate</option>
-          <option value="stable">Stable</option>
-        </field>
-        <field name="category" type="arscategory" default="" label="MOD_ARSLATESTRELEASES_FIELD_CATEGORY_LABEL" description="MOD_ARSLATESTRELEASES_FIELD_CATEGORY_DESC" />
-      </fieldset>
-			<fieldset name="advanced">
-				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
-				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
-				<field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
-					<option value="1">JGLOBAL_USE_GLOBAL</option>
-					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
-				</field>
-				<field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
-				<field name="cachemode" type="hidden" default="static"> 
-        	<option value="static"></option>
-				</field>
-			</fieldset>
-		</fields>
-	</config>
-  <updateservers>
-    <server type="extension" priority="1" name="GiBi ARS LatestReleases updates">http://extensions.gibilogic.com/index.php?option=com_ars&amp;view=update&amp;task=stream&amp;format=xml&amp;id=4</server>
-  </updateservers>
+    <name>mod_arslatestreleases</name>
+    <author>GiBiLogic</author>
+    <creationDate>2013-07-21</creationDate>
+    <copyright>Copyright (C) 2012-2013 GiBiLogic snc. All rights reserved.</copyright>
+    <license>GNU/GPL v2 or later</license>
+    <authorEmail>info@gibilogic.com</authorEmail>
+    <authorUrl>www.gibilogic.com</authorUrl>
+    <version>2.2</version>
+    <description>MOD_ARSLATESTRELEASES_DESCRIPTION</description>
+    <files>
+        <filename module="mod_arslatestreleases">mod_arslatestreleases.php</filename>
+        <folder>fields</folder>
+        <folder>language</folder>
+        <folder>tmpl</folder>
+        <filename>helper.php</filename>
+        <filename>index.html</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">en-GB.mod_arslatestreleases.ini</language>
+        <language tag="it-IT">it-IT.mod_arslatestreleases.ini</language>
+    </languages>
+    <config>
+        <fields name="params" addfieldpath="/modules/mod_arslatestreleases/fields">
+            <fieldset name="basic">
+                <field name="count" type="text" default="5" label="MOD_ARSLATESTRELEASES_FIELD_COUNT_LABEL" description="MOD_ARSLATESTRELEASES_FIELD_COUNT_DESC" />
+                <field name="maturity" type="list" label="MOD_ARSLATESTRELEASES_FIELD_MATURITY_LABEL" description="MOD_ARSLATESTRELEASES_FIELD_MATURITY_DESC">
+                    <option value="alpha">Alpha</option>
+                    <option value="beta">Beta</option>
+                    <option value="rc">Release Candidate</option>
+                    <option value="stable">Stable</option>
+                </field>
+                <field name="category" type="arscategory" default="" label="MOD_ARSLATESTRELEASES_FIELD_CATEGORY_LABEL" description="MOD_ARSLATESTRELEASES_FIELD_CATEGORY_DESC" />
+                <field name="unique_category" type="radio" default="0" label="MOD_ARSLATESTRELEASES_FIELD_UNIQUE_CATEGORY_LABEL" description="MOD_ARSLATESTRELEASES_FIELD_UNIQUE_CATEGORY_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">MOD_ARSLATESTRELEASES_FIELD_UNIQUE_CATEGORY_OPTION_LINK_RELEASE</option>
+                    <option value="2">MOD_ARSLATESTRELEASES_FIELD_UNIQUE_CATEGORY_OPTION_LINK_CATEGORY</option>
+                </field>
+
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+                <field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+                <field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+                <field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+                <field name="cachemode" type="hidden" default="static">
+                    <option value="static"></option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" priority="1" name="GiBi ARS LatestReleases updates">http://extensions.gibilogic.com/index.php?option=com_ars&amp;view=update&amp;task=stream&amp;format=xml&amp;id=4</server>
+    </updateservers>
 </extension>
