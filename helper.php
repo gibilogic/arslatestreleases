@@ -31,7 +31,7 @@ abstract class modArsLatestreleasesHelper
         $items = array();
         $categories = array();
         foreach ($releases as $release) {
-            if ($params->get('unique_category', 0) && $categories[$release->category_id]) {
+            if ($params->get('unique_category', 0) && isset($categories[$release->category_id])) {
                 continue;
             }
             $categories[$release->category_id] = true;

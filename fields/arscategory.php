@@ -21,7 +21,7 @@ class JFormFieldArscategory extends JFormFieldList
     protected function getInput()
     {
         $query = "SELECT `id`, `title` FROM `#__ars_categories` WHERE `published` = '1'";
-        $db = & JFactory::getDBO();
+        $db = JFactory::getDBO();
         $db->setQuery($query);
 
         $list = array();
